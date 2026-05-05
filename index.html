@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | BusTimeTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="login">
+  <div class="app-shell auth-shell">
+    <header class="page-header compact">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">BT</span>
+        <span>BusTimeTrack</span>
+      </a>
+      <a class="ghost-link" href="signup.html">Create account</a>
+    </header>
+
+    <main class="auth-layout">
+      <section class="hero-panel">
+        <p class="eyebrow">Login</p>
+        <h1>Track smarter. Travel better.</h1>
+        <p class="support-copy">
+          Passenger login should take seconds. Owner login should get you straight to adding a bus and starting a trip.
+        </p>
+
+        <div class="role-shortcuts">
+          <button type="button" class="role-card" data-role-jump="passenger">
+            <span>Passenger</span>
+            <strong>Quick signup, quick tracking</strong>
+          </button>
+          <button type="button" class="role-card" data-role-jump="owner">
+            <span>Bus Owner</span>
+            <strong>Login, add bus, done</strong>
+          </button>
+        </div>
+      </section>
+
+      <section class="auth-card">
+        <div class="tab-row">
+          <button type="button" class="tab-button active" data-mode="mobile">Mobile + OTP</button>
+          <button type="button" class="tab-button" data-mode="email">Email + Password</button>
+        </div>
+
+        <form id="mobileLoginForm" class="stack-form login-panel" data-mode="mobile">
+          <label>
+            Mobile Number
+            <input type="tel" name="mobile" placeholder="98765 43210" inputmode="numeric">
+          </label>
+          <label>
+            OTP
+            <div class="inline-field">
+              <input type="text" name="otp" placeholder="123456" inputmode="numeric">
+              <button type="button" class="ghost-button" id="sendOtpButton">Send OTP</button>
+            </div>
+          </label>
+          <label class="check-row">
+            <input type="checkbox" name="rememberMe">
+            <span>Remember me</span>
+          </label>
+          <button type="submit" class="primary-button">Login</button>
+        </form>
+
+        <form id="emailLoginForm" class="stack-form login-panel" data-mode="email" hidden>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="owner@bustimetrack.com">
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" placeholder="Enter password">
+          </label>
+          <label class="check-row">
+            <input type="checkbox" name="rememberMe">
+            <span>Remember me</span>
+          </label>
+          <button type="submit" class="primary-button">Login</button>
+        </form>
+
+        <p class="helper-copy">Demo OTP is <strong>123456</strong>. Owner email login works after signup.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

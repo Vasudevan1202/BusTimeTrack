@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup | BusTimeTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="signup">
+  <div class="app-shell auth-shell">
+    <header class="page-header compact">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">BT</span>
+        <span>BusTimeTrack</span>
+      </a>
+      <a class="ghost-link" href="index.html">Back to login</a>
+    </header>
+
+    <main class="single-column">
+      <section class="auth-card signup-card">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Signup</p>
+            <h1>Create your account</h1>
+          </div>
+        </div>
+
+        <div class="role-picker">
+          <button type="button" class="role-toggle active" data-role-option="passenger">Passenger</button>
+          <button type="button" class="role-toggle" data-role-option="owner">Bus Owner</button>
+        </div>
+
+        <form id="signupForm" class="stack-form">
+          <input type="hidden" name="role" value="passenger">
+
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Your full name" required>
+          </label>
+
+          <label>
+            Mobile Number
+            <input type="tel" name="mobile" placeholder="98765 43210" inputmode="numeric" required>
+          </label>
+
+          <label>
+            OTP
+            <div class="inline-field">
+              <input type="text" name="otp" placeholder="123456" inputmode="numeric" required>
+              <button type="button" class="ghost-button" id="signupOtpButton">Send OTP</button>
+            </div>
+          </label>
+
+          <label>
+            Email
+            <input type="email" name="email" placeholder="Optional for passengers">
+          </label>
+
+          <label>
+            Password
+            <input type="password" name="password" placeholder="Optional for passengers, required for owners">
+          </label>
+
+          <p class="helper-copy" id="passengerHint">Passengers can skip password and use OTP only, or add one for email login later.</p>
+
+          <button type="submit" class="primary-button">Create account</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

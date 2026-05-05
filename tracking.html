@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passenger Home | BusTimeTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="passenger">
+  <div class="app-shell">
+    <header class="page-header">
+      <a class="brand" href="tracking.html">
+        <span class="brand-mark">BT</span>
+        <span>BusTimeTrack</span>
+      </a>
+      <div class="header-actions" data-auth-actions hidden>
+        <span class="user-chip" data-user-role></span>
+        <button type="button" class="ghost-button" data-logout>Logout</button>
+      </div>
+    </header>
+
+    <main class="dashboard-layout">
+      <section class="panel hero-panel">
+        <p class="eyebrow">Passenger Home</p>
+        <h1 id="passengerWelcome">Find your bus fast.</h1>
+        <p class="support-copy">Search by bus number or stop. Nearby buses and live trip cards show up immediately.</p>
+
+        <form id="passengerSearchForm" class="search-form">
+          <input id="passengerSearchInput" type="text" placeholder="Bus number or stop">
+          <button type="submit" class="primary-button">Search</button>
+        </form>
+      </section>
+
+      <section class="panel live-panel">
+        <div class="result-top">
+          <div>
+            <p class="section-tag" id="activeBusName">B12</p>
+            <h2 id="activeBusRoute">Depot -> River Park</h2>
+          </div>
+          <span class="status-pill online" id="activeBusStatus">Trip Active</span>
+        </div>
+        <div class="status-grid">
+          <article class="mini-card wide">
+            <span>Current Location</span>
+            <strong id="currentLocation">Approaching Central</strong>
+          </article>
+          <article class="mini-card">
+            <span>Next Stop</span>
+            <strong id="nextStop">Central</strong>
+          </article>
+          <article class="mini-card">
+            <span>ETA</span>
+            <strong id="etaValue">6 mins</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="section-tag">Results</p>
+            <h2>Matches</h2>
+          </div>
+        </div>
+        <div id="passengerResults" class="result-list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="section-tag">Nearby</p>
+            <h2>Nearby buses</h2>
+          </div>
+        </div>
+        <div id="nearbyBuses" class="mini-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="section-tag">Live Tracking</p>
+            <h2>On the move</h2>
+          </div>
+        </div>
+        <div id="liveTrackingList" class="mini-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

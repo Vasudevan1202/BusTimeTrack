@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Owner Dashboard | BusTimeTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="owner">
+  <div class="app-shell">
+    <header class="page-header">
+      <a class="brand" href="owner.html">
+        <span class="brand-mark">BT</span>
+        <span>BusTimeTrack</span>
+      </a>
+      <div class="header-actions" data-auth-actions hidden>
+        <span class="user-chip" data-user-name></span>
+        <button type="button" class="ghost-button" data-logout>Logout</button>
+      </div>
+    </header>
+
+    <main class="dashboard-layout owner-layout">
+      <section class="panel hero-panel">
+        <p class="eyebrow">Owner Dashboard</p>
+        <h1 id="ownerWelcome">Manage your buses in one screen.</h1>
+        <p class="support-copy">Add bus details, start a trip, end a trip, or edit later without opening another page.</p>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="section-tag">Add Bus</p>
+            <h2>Bus details</h2>
+          </div>
+          <span class="user-chip" id="ownerFormStatus">Ready</span>
+        </div>
+
+        <form id="ownerBusForm" class="stack-form">
+          <input type="hidden" name="busId">
+          <label>
+            Bus Number
+            <input type="text" name="busNumber" placeholder="B12" required>
+          </label>
+          <label>
+            Route
+            <input type="text" name="route" placeholder="Depot -> River Park" required>
+          </label>
+          <label>
+            Stops
+            <textarea name="stops" rows="4" placeholder="Depot, Market, Central, River Park" required></textarea>
+          </label>
+          <label>
+            Driver Name
+            <input type="text" name="driverName" placeholder="Optional">
+          </label>
+          <label>
+            Current Stop
+            <input type="text" name="currentStop" placeholder="Central">
+          </label>
+          <button type="submit" class="primary-button">Add Bus</button>
+        </form>
+      </section>
+
+      <section class="panel full-span">
+        <div class="section-heading">
+          <div>
+            <p class="section-tag">Your Fleet</p>
+            <h2>Saved buses</h2>
+          </div>
+          <span class="user-chip" id="ownerBusCount">0 buses</span>
+        </div>
+        <div id="ownerBusList" class="result-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
