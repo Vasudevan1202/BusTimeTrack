@@ -163,7 +163,12 @@ function loginUser(user, rememberMe = false) {
 function currentUser() {
   const session = getSession();
   if (!session) return null;
-  return getUsers().find((user) => user.id === session.userId) || null;
+  const user = getUsers().find((candidate) => candidate.id === session.userId) || null;
+  if (!user) {
+    clearSession();
+    return null;
+  }
+  return user;
 }
 
 function redirectForRole(role) {
@@ -231,10 +236,9 @@ function initLoginPage() {
 
   if (!mobileForm || !emailForm) return;
 
-  const session = getSession();
-  if (session) {
-    redirectForRole(session.role);
-    return;
+  const user = currentUser();
+  if (user) {
+    showToast(`Logged in as ${user.name}. Use your dashboard after login if needed.`);
   }
 
   function activateTab(mode) {
