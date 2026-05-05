@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BusTimeTrack | Know Where Your Bus Is</title>
+  <meta name="description" content="Track your bus in real-time and reduce waiting times with BusTimeTrack.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="landing-body">
+  <div class="background-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+  
+  <nav class="navbar">
+    <div class="logo">BusTime<span>Track</span></div>
+  </nav>
+
+  <main class="hero-container">
+    <div class="hero-content">
+      <div class="badge">Real-Time Tracking Platform</div>
+      <h1>Know where your bus is, <br> <span class="highlight">before you wait.</span></h1>
+      <p>Join thousands of passengers saving time every day with live bus GPS tracking, accurate ETAs, and a seamless travel experience.</p>
+      
+      <div class="cta-group">
+        <a href="/auth.html?mode=login" class="btn btn-primary">Login</a>
+        <a href="/auth.html?mode=signup" class="btn btn-secondary">Sign Up</a>
+      </div>
+    </div>
+    
+    <div class="hero-image">
+      <div class="glass-card mockup-card">
+        <div class="mockup-header">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="mockup-body">
+          <div class="bus-icon-animate">🚌</div>
+          <div class="eta-box">ETA: 5 mins</div>
+          <div class="route-line">
+            <div class="stop start"></div>
+            <div class="bus-progress"></div>
+            <div class="stop end"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem; color: var(--text-light); font-size: 0.875rem;">
+    &copy; 2026 BusTimeTrack. All rights reserved.
+  </footer>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

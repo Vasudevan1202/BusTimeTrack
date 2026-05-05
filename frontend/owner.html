@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Owner Dashboard | BusTimeTrack</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="dashboard-layout">
+  
+  <nav class="dashboard-nav">
+    <div class="logo">BusTime<span>Track</span></div>
+    <div class="user-profile">
+      <span id="user-name">Owner</span>
+      <button class="btn btn-secondary btn-sm" id="logout-btn" style="padding: 0.25rem 0.75rem; font-size: 0.8rem;">Logout</button>
+    </div>
+  </nav>
+
+  <main class="owner-content">
+    <div class="card" id="add-bus-section">
+      <h3 style="margin-bottom: 1.5rem;">Register New Bus</h3>
+      <form id="add-bus-form">
+        <div class="form-group">
+          <label>Bus Number</label>
+          <input type="text" id="bus-number" class="form-control" placeholder="e.g., NY-100" required>
+        </div>
+        <div style="display:flex; gap: 1rem; margin-bottom: 1rem;">
+          <div class="form-group" style="flex: 1;">
+            <label>Start Route</label>
+            <input type="text" id="route-start" class="form-control" placeholder="Downtown" required>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label>End Route</label>
+            <input type="text" id="route-end" class="form-control" placeholder="Uptown" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Stops (Comma separated "Name,Lat,Lng")</label>
+          <textarea id="bus-stops" class="form-control" rows="3" placeholder="Stop A,40.7128,-74.0060&#10;Stop B,40.7200,-74.0100" required></textarea>
+          <small style="color: var(--text-light)">For simulation: try adding 2-3 stops with approximate coordinates.</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Bus</button>
+      </form>
+    </div>
+
+    <div class="card" id="my-buses-section">
+      <h3 style="margin-bottom: 1.5rem;">My Buses</h3>
+      <div id="buses-list">
+        <!-- Render buses dynamically -->
+        <p style="color: var(--text-light)">No buses added yet.</p>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script type="module" src="/js/app.js"></script>
+  <script type="module" src="/js/owner.js"></script>
+</body>
+</html>
