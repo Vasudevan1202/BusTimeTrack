@@ -175,14 +175,32 @@ function redirectForRole(role) {
   window.location.href = role === "owner" ? "owner.html" : "tracking.html";
 }
 
+function renderAuthGate(message, linkHref = "index.html", linkLabel = "Open login") {
+  const main = document.querySelector("main");
+  if (!main) return;
+  main.innerHTML = `
+    <section class="panel hero-panel">
+      <p class="eyebrow">Access Required</p>
+      <h1>${message}</h1>
+      <a class="primary-button" href="${linkHref}">${linkLabel}</a>
+    </section>
+  `;
+}
+
 function requireAuth(role) {
   const user = currentUser();
   if (!user) {
-    window.location.href = "index.html";
+    renderAuthGate("Please log in first.");
     return null;
   }
   if (role && user.role !== role) {
-    redirectForRole(user.role);
+    renderAuthGate(
+      user.role === "owner"
+        ? "This page is for passengers. Open your owner dashboard instead."
+        : "This page is for owners. Open passenger home instead.",
+      user.role === "owner" ? "owner.html" : "tracking.html",
+      user.role === "owner" ? "Open owner dashboard" : "Open passenger home"
+    );
     return null;
   }
   return user;
